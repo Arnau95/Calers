@@ -2,6 +2,8 @@ package barretina.arnau.calers
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import barretina.arnau.calers.Debts.DebtsFragment
+import barretina.arnau.calers.Expenses.ExpensesFragment
 import barretina.arnau.calers.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,29 +21,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun navigateToMainFragment() {
-        val fragment: MainFragment = MainFragment()
+        val fragment = MainFragment()
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(binding.mainContainer.id, fragment, MainFragment.TAG)
-        //ft.addToBackStack(MainFragment.TAG)
+        ft.addToBackStack(MainFragment.TAG)
         ft.commit()
     }
 
     fun navigateToExpensesFragment() {
-        // TODO
-        /*val fragment: MainFragment = MainFragment()
+        val fragment = ExpensesFragment()
         val ft = supportFragmentManager.beginTransaction()
-        ft.replace(binding.mainContainer.id, fragment, MainFragment.TAG)
-        ft.addToBackStack(MainFragment.TAG)
-        ft.commit()*/
+        ft.replace(binding.mainContainer.id, fragment, ExpensesFragment.TAG)
+        ft.addToBackStack(ExpensesFragment.TAG)
+        ft.commit()
     }
 
     fun navigateToDebtsFragment() {
-        // TODO
-        /*val fragment: MainFragment = MainFragment()
+        val fragment = DebtsFragment()
         val ft = supportFragmentManager.beginTransaction()
-        ft.replace(binding.mainContainer.id, fragment, MainFragment.TAG)
-        ft.addToBackStack(MainFragment.TAG)
-        ft.commit()*/
+        ft.replace(binding.mainContainer.id, fragment, DebtsFragment.TAG)
+        ft.addToBackStack(DebtsFragment.TAG)
+        ft.commit()
     }
 
     override fun onBackPressed() {
