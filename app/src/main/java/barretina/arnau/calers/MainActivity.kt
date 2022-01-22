@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButton(R.string.cancel) { view, _ ->
                 view.dismiss()
             }
-            .setPositiveButton(R.string.accept) { view, _ ->
+            .setPositiveButton(R.string.accept) { _, _ ->
                 finish()
             }
             .setCancelable(true)
