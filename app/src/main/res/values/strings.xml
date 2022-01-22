@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Calers</string>
+
+    <string name="go_to_expenses">Go to expenses</string>
+    <string name="go_to_debts">Go to debts</string>
+
 </resources>
