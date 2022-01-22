@@ -4,4 +4,10 @@
     <string name="go_to_expenses">Go to expenses</string>
     <string name="go_to_debts">Go to debts</string>
 
+    <string name="exit_dialog_title"></string>
+    <string name="exit_dialog_message">Are you sure do you want to exit?</string>
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+
+
 </resources>

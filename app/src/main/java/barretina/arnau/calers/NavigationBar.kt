@@ -1,6 +1,8 @@
 package barretina.arnau.calers
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.Resources
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
@@ -34,6 +36,15 @@ class NavigationBar @kotlin.jvm.JvmOverloads constructor(
 
         binding.btnSettings.setOnClickListener {
             listener?.settingsButtonPressed()
+        }
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    fun toggleBackButton(isBack: Boolean) {
+        if (isBack) {
+            binding.btnBack.background = resources.getDrawable(R.drawable.btn_back, null)
+        } else {
+            binding.btnBack.background = resources.getDrawable(R.drawable.btn_close, null)
         }
     }
 

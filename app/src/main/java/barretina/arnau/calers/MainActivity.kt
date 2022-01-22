@@ -3,6 +3,7 @@ package barretina.arnau.calers
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import barretina.arnau.calers.Debts.DebtsFragment
 import barretina.arnau.calers.Expenses.ExpensesFragment
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val fragment = MainFragment()
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(binding.mainContainer.id, fragment, MainFragment.TAG)
-        ft.addToBackStack(MainFragment.TAG)
+        //ft.addToBackStack(MainFragment.TAG)
         ft.commit()
     }
 
@@ -38,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         ft.replace(binding.mainContainer.id, fragment, ExpensesFragment.TAG)
         ft.addToBackStack(ExpensesFragment.TAG)
         ft.commit()
+
+        binding.navBar.toggleBackButton(true)
     }
 
     fun navigateToDebtsFragment() {
@@ -46,13 +49,14 @@ class MainActivity : AppCompatActivity() {
         ft.replace(binding.mainContainer.id, fragment, DebtsFragment.TAG)
         ft.addToBackStack(DebtsFragment.TAG)
         ft.commit()
+
+        binding.navBar.toggleBackButton(true)
     }
 
     private fun configureNavigationBar() {
         binding.navBar.setListener(object : NavigationBar.NavigationBarListener {
             override fun backButtonPressed() {
-                // TODO: Manage back/close navigations and set the icon properly
-                Toast.makeText(baseContext, "BACK BUTTON PRESSED", Toast.LENGTH_SHORT).show()
+                onBackPressed()
             }
 
             override fun settingsButtonPressed() {
@@ -62,7 +66,32 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun showExitAppDialog() {
+        val dialog = AlertDialog.Builder(this)
+            .setMessage(R.string.exit_dialog_message)
+            .setNegativeButton(R.string.cancel) { view, _ ->
+                view.dismiss()
+            }
+            .setPositiveButton(R.string.accept) { view, _ ->
+                finish()
+            }
+            .setCancelable(true)
+            .create()
+
+        dialog.show()
+    }
+
     override fun onBackPressed() {
-        super.onBackPressed()
+        if (supportFragmentManager.backStackEntryCount == 1) {
+            binding.navBar.toggleBackButton(false)
+        }
+
+        supportFragmentManager.fragments.forEach {
+            if (it is MainFragment) {
+                showExitAppDialog()
+            } else {
+                super.onBackPressed()
+            }
+        }
     }
 }
