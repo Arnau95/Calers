@@ -1,13 +1,28 @@
 <resources>
     <string name="app_name">Calers</string>
 
+    <!--Main Fragment-->
     <string name="go_to_expenses">Go to expenses</string>
     <string name="go_to_debts">Go to debts</string>
 
+    <!--Exit app dialog-->
     <string name="exit_dialog_title"></string>
     <string name="exit_dialog_message">Are you sure do you want to exit?</string>
     <string name="accept">Accept</string>
     <string name="cancel">Cancel</string>
 
+    <!--Settings Fragment-->
+    <string name="settings">Settings</string>
+    <string name="select_default_home_screen">Select the default start screen: </string>
+    <string name="home_screen">Home</string>
+    <string name="expenses_screen">Expenses</string>
+    <string name="debts_screen">Debts</string>
+    <string name="select_language">Language: </string>
+    <string name="english">English</string>
+    <string name="catalan">Catalan</string>
+    <string name="spanish">Spanish</string>
+    <string name="theme">Theme</string>
+    <string name="dark">Dark</string>
+    <string name="light">Light</string>
 
 </resources>

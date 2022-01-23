@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import barretina.arnau.calers.Debts.DebtsFragment
 import barretina.arnau.calers.Expenses.ExpensesFragment
+import barretina.arnau.calers.Settings.SettingsFragment
 import barretina.arnau.calers.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -53,6 +54,12 @@ class MainActivity : AppCompatActivity() {
         binding.navBar.toggleBackButton(true)
     }
 
+    fun showSettings() {
+        val settingsFragment = SettingsFragment.newInstance("", "")
+        supportFragmentManager.beginTransaction()
+            .add(settingsFragment, SettingsFragment::class.java.name).commitAllowingStateLoss()
+    }
+
     private fun configureNavigationBar() {
         binding.navBar.setListener(object : NavigationBar.NavigationBarListener {
             override fun backButtonPressed() {
@@ -60,8 +67,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun settingsButtonPressed() {
-                // TODO: Open the settings screen/pop up/bottom sheet fragment
-                Toast.makeText(baseContext, "SETTINGS BUTTON PRESSED", Toast.LENGTH_SHORT).show()
+                showSettings()
             }
         })
     }
