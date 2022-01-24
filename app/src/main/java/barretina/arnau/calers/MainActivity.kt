@@ -9,45 +9,47 @@ import barretina.arnau.calers.expenses.ExpensesFragment
 import barretina.arnau.calers.settings.SettingsFragment
 import barretina.arnau.calers.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainActivityContract.View {
 
     private lateinit var binding: ActivityMainBinding
 
+    private lateinit var presenter: MainActivityContract.Presenter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        navigateToMainFragment()
+
+        presenter = MainActivityPresenter(applicationContext)
+        presenter.attachView(this)
+        presenter.initialize()
+
         configureNavigationBar()
     }
 
-    fun navigateToMainFragment() {
+    override fun navigateToMainFragment() {
         val fragment = MainFragment()
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(binding.mainContainer.id, fragment, MainFragment.TAG)
-        //ft.addToBackStack(MainFragment.TAG)
         ft.commit()
     }
 
-    fun navigateToExpensesFragment() {
+    override fun navigateToExpensesFragment() {
         val fragment = ExpensesFragment()
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(binding.mainContainer.id, fragment, ExpensesFragment.TAG)
-        ft.addToBackStack(ExpensesFragment.TAG)
         ft.commit()
 
         binding.navBar.toggleBackButton(true)
     }
 
-    fun navigateToDebtsFragment() {
+    override fun navigateToDebtsFragment() {
         val fragment = DebtsFragment()
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(binding.mainContainer.id, fragment, DebtsFragment.TAG)
-        ft.addToBackStack(DebtsFragment.TAG)
         ft.commit()
 
         binding.navBar.toggleBackButton(true)
@@ -87,15 +89,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount == 1) {
-            binding.navBar.toggleBackButton(false)
-        }
-
         supportFragmentManager.fragments.forEach {
             if (it is MainFragment) {
                 showExitAppDialog()
             } else {
-                super.onBackPressed()
+                binding.navBar.toggleBackButton(false)
+                navigateToMainFragment()
             }
         }
     }
