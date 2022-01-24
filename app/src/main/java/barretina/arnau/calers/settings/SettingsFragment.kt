@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import barretina.arnau.calers.MainActivity
 import barretina.arnau.calers.R
 import barretina.arnau.calers.databinding.FragmentSettingsBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -104,6 +105,11 @@ class SettingsFragment : BottomSheetDialogFragment(), SettingsContract.View {
                 Toast.makeText(context, name, Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        (activity as? MainActivity)?.toggleSettingsButton(true)
     }
 
     enum class SelectorType {

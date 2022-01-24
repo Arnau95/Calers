@@ -4,7 +4,7 @@ import android.content.Context
 import barretina.arnau.calers.utils.BaseContract
 
 interface SettingsContract {
-    interface View : BaseContract.View{
+    interface View : BaseContract.View {
         fun refreshLanguagesSelector(selected: String?, list: ArrayList<String>)
 
         fun refreshDefaultScreenSelector(selected: String?, list: ArrayList<String>)

@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
             }
 
             override fun settingsButtonPressed() {
+                binding.navBar.toggleSettingsButton(false)
                 showSettings()
             }
         })
@@ -86,6 +87,10 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
             .create()
 
         dialog.show()
+    }
+
+    fun toggleSettingsButton(isEnabled: Boolean) {
+        binding.navBar.toggleSettingsButton(isEnabled)
     }
 
     override fun onBackPressed() {

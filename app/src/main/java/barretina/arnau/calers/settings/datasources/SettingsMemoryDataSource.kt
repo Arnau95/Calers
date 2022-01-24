@@ -6,17 +6,17 @@ interface SettingsMemoryDataSource {
 
     val context: Context
 
-    suspend fun saveSelectedLanguage(language: String)
+    fun saveSelectedLanguage(language: String)
 
-    suspend fun saveDefaultStartScreen(screen: String)
+    fun saveDefaultStartScreen(screen: String)
 
-    suspend fun saveSelectedTheme(theme: String)
+    fun saveSelectedTheme(theme: String)
 
-    suspend fun getSelectedLanguage(): String?
+    fun getSelectedLanguage(): String?
 
-    suspend fun getDefaultStartScreen(): String?
+    fun getDefaultStartScreen(): String?
 
-    suspend fun getSelectedTheme(): String?
+    fun getSelectedTheme(): String?
 
     fun getAvailableLanguages(): ArrayList<String>
 

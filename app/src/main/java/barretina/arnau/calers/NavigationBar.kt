@@ -48,6 +48,10 @@ class NavigationBar @kotlin.jvm.JvmOverloads constructor(
         }
     }
 
+    fun toggleSettingsButton(isEnabled: Boolean) {
+        binding.btnSettings.isEnabled = isEnabled
+    }
+
     interface NavigationBarListener {
 
         fun backButtonPressed()

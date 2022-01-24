@@ -6,27 +6,27 @@ import barretina.arnau.calers.extensions.saveString
 
 class SettingsMemoryDataSourceImp(override val context: Context) : SettingsMemoryDataSource {
 
-    override suspend fun saveSelectedLanguage(language: String) {
+    override fun saveSelectedLanguage(language: String) {
         context.saveString(SETTINGS_SHARED_PREFERENCE, SAVED_LANGUAGE_TAG, language)
     }
 
-    override suspend fun saveDefaultStartScreen(screen: String) {
+    override fun saveDefaultStartScreen(screen: String) {
         context.saveString(SETTINGS_SHARED_PREFERENCE, SAVED_DEFAULT_SCREEN_TAG, screen)
     }
 
-    override suspend fun saveSelectedTheme(theme: String) {
+    override fun saveSelectedTheme(theme: String) {
         context.saveString(SETTINGS_SHARED_PREFERENCE, SAVED_THEME_TAG, theme)
     }
 
-    override suspend fun getSelectedLanguage(): String? {
+    override fun getSelectedLanguage(): String? {
         return context.getSavedString(SETTINGS_SHARED_PREFERENCE, SAVED_LANGUAGE_TAG)
     }
 
-    override suspend fun getDefaultStartScreen(): String? {
+    override fun getDefaultStartScreen(): String? {
         return context.getSavedString(SETTINGS_SHARED_PREFERENCE, SAVED_DEFAULT_SCREEN_TAG)
     }
 
-    override suspend fun getSelectedTheme(): String? {
+    override fun getSelectedTheme(): String? {
         return context.getSavedString(SETTINGS_SHARED_PREFERENCE, SAVED_THEME_TAG)
     }
 

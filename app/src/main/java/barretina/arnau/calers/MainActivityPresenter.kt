@@ -14,12 +14,10 @@ class MainActivityPresenter(override val context: Context) : MainActivityContrac
     private val settings: SettingsMemoryDataSourceImp = SettingsMemoryDataSourceImp(context)
 
     override fun initialize() {
-        GlobalScope.launch(Dispatchers.IO) {
-            when (settings.getDefaultStartScreen()) {
-                DefaultStartScreen.EXPENSES.toString() -> view?.navigateToExpensesFragment()
-                DefaultStartScreen.DEBTS.toString() -> view?.navigateToDebtsFragment()
-                else -> view?.navigateToMainFragment()
-            }
+        when (settings.getDefaultStartScreen()) {
+            DefaultStartScreen.EXPENSES.toString() -> view?.navigateToExpensesFragment()
+            DefaultStartScreen.DEBTS.toString() -> view?.navigateToDebtsFragment()
+            else -> view?.navigateToMainFragment()
         }
     }
 }
