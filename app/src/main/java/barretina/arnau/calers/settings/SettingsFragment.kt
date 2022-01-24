@@ -17,6 +17,9 @@ class SettingsFragment : BottomSheetDialogFragment(), SettingsContract.View {
 
     private lateinit var presenter: SettingsContract.Presenter
 
+    private var isLanguageSelectorInit: Boolean = false
+    private var isThemeSelectorInit: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(
@@ -74,8 +77,20 @@ class SettingsFragment : BottomSheetDialogFragment(), SettingsContract.View {
                 ) {
                     val selectedItem: String = parent.getItemAtPosition(position).toString()
                     when (type) {
-                        SelectorType.Language -> presenter.saveSelectedLanguage(selectedItem)
-                        SelectorType.Screen -> presenter.saveSelectedScreen(selectedItem)
+                        SelectorType.Language -> {
+                            presenter.saveSelectedLanguage(selectedItem)
+                            if (isLanguageSelectorInit) {
+                                (context as? MainActivity)?.setLocale(selectedItem, true)
+                            }
+                            isLanguageSelectorInit = true
+                        }
+                        SelectorType.Screen -> {
+                            presenter.saveSelectedScreen(selectedItem)
+                            if (isThemeSelectorInit) {
+                                // TODO: Refresh view when theme change applied
+                            }
+                            isThemeSelectorInit = true
+                        }
                         else -> "NO OP"
                     }
                 }

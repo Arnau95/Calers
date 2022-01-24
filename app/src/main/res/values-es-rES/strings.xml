@@ -1,2 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Calers</string>
+
+    <!--Main Fragment-->
+    <string name="go_to_expenses">Ir a gastos</string>
+    <string name="go_to_debts">Ir a deudas</string>
+
+    <!--Exit app dialog-->
+    <string name="exit_dialog_title"></string>
+    <string name="exit_dialog_message">¿Seguro que quieres salir?</string>
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+
+    <!--Settings Fragment-->
+    <string name="settings">Ajustes</string>
+    <string name="select_default_home_screen">Selecciona la pantalla de inicio por defecto: </string>
+    <string name="home_screen">Home</string>
+    <string name="expenses_screen">Gastos</string>
+    <string name="debts_screen">Deudas</string>
+    <string name="select_language">Idioma: </string>
+    <string name="english">Inglés</string>
+    <string name="catalan">Catalán</string>
+    <string name="spanish">Castellano</string>
+    <string name="theme">Tema</string>
+    <string name="dark">Oscuro</string>
+    <string name="light">Claro</string>
+</resources>

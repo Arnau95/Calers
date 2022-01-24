@@ -14,6 +14,8 @@ class MainActivityPresenter(override val context: Context) : MainActivityContrac
     private val settings: SettingsMemoryDataSourceImp = SettingsMemoryDataSourceImp(context)
 
     override fun initialize() {
+        view?.setLocale(settings.getSelectedLanguage(), false)
+
         when (settings.getDefaultStartScreen()) {
             DefaultStartScreen.EXPENSES.toString() -> view?.navigateToExpensesFragment()
             DefaultStartScreen.DEBTS.toString() -> view?.navigateToDebtsFragment()

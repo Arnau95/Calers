@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calers</string>
+
+    <!--Main Fragment-->
+    <string name="go_to_expenses">Ves a les despeses</string>
+    <string name="go_to_debts">Ves als deutes</string>
+
+    <!--Exit app dialog-->
+    <string name="exit_dialog_title"></string>
+    <string name="exit_dialog_message">Segur que vols sortir?</string>
+    <string name="accept">Acceptar</string>
+    <string name="cancel">Cancelar</string>
+
+    <!--Settings Fragment-->
+    <string name="settings">Configuració</string>
+    <string name="select_default_home_screen">Pantalla d\'inici per defecte: </string>
+    <string name="home_screen">Home</string>
+    <string name="expenses_screen">Despeses</string>
+    <string name="debts_screen">Deutes</string>
+    <string name="select_language">Idioma: </string>
+    <string name="english">Anglès</string>
+    <string name="catalan">Català</string>
+    <string name="spanish">Castellà</string>
+    <string name="theme">Tema</string>
+    <string name="dark">Fosc</string>
+    <string name="light">Clar</string>
+</resources>

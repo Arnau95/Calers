@@ -1,5 +1,7 @@
 package barretina.arnau.calers
 
+import android.content.res.Configuration
+import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -8,6 +10,7 @@ import barretina.arnau.calers.debts.DebtsFragment
 import barretina.arnau.calers.expenses.ExpensesFragment
 import barretina.arnau.calers.settings.SettingsFragment
 import barretina.arnau.calers.databinding.ActivityMainBinding
+import java.util.*
 
 class MainActivity : AppCompatActivity(), MainActivityContract.View {
 
@@ -93,6 +96,29 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
         binding.navBar.toggleSettingsButton(isEnabled)
     }
 
+    override fun setLocale(language: String?, mustRefresh: Boolean) {
+        var localeCode = ENGLISH_LOCALE_TAG
+        when (language) {
+            "CATALAN" -> localeCode = CATALAN_LOCALE_TAG
+            "SPANISH" -> localeCode = SPANISH_LOCALE_TAG
+        }
+
+        val locale = Locale(localeCode)
+        Locale.setDefault(locale)
+        val resources: Resources = this.resources
+        val config: Configuration? = resources.configuration
+        config?.let {
+            it.setLocale(locale)
+            resources.updateConfiguration(it, resources.displayMetrics)
+        }
+
+        if (mustRefresh) {
+            val intent = intent
+            finish()
+            startActivity(intent)
+        }
+    }
+
     override fun onBackPressed() {
         supportFragmentManager.fragments.forEach {
             if (it is MainFragment) {
@@ -102,5 +128,11 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
                 navigateToMainFragment()
             }
         }
+    }
+
+    companion object {
+        const val ENGLISH_LOCALE_TAG = "en"
+        const val CATALAN_LOCALE_TAG = "ca"
+        const val SPANISH_LOCALE_TAG = "es"
     }
 }

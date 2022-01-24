@@ -11,6 +11,8 @@ interface MainActivityContract {
         fun navigateToExpensesFragment()
 
         fun navigateToDebtsFragment()
+
+        fun setLocale(language: String?, mustRefresh: Boolean)
     }
 
     interface Presenter: BaseContract.Presenter<View> {
