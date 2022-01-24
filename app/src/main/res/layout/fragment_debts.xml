@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Debts.DebtsFragment">
+    tools:context=".debts.DebtsFragment">
 
     <TextView
         android:layout_width="match_parent"

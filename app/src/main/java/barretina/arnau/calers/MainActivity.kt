@@ -2,12 +2,11 @@ package barretina.arnau.calers
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
-import barretina.arnau.calers.Debts.DebtsFragment
-import barretina.arnau.calers.Expenses.ExpensesFragment
-import barretina.arnau.calers.Settings.SettingsFragment
+import barretina.arnau.calers.debts.DebtsFragment
+import barretina.arnau.calers.expenses.ExpensesFragment
+import barretina.arnau.calers.settings.SettingsFragment
 import barretina.arnau.calers.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     fun showSettings() {
         val settingsFragment = SettingsFragment.newInstance("", "")
         supportFragmentManager.beginTransaction()
-            .add(settingsFragment, SettingsFragment::class.java.name).commitAllowingStateLoss()
+            .add(settingsFragment, SettingsFragment::class.java.name).commit()
     }
 
     private fun configureNavigationBar() {

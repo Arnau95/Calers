@@ -1,27 +1,27 @@
-package barretina.arnau.calers.Expenses
+package barretina.arnau.calers.debts
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import barretina.arnau.calers.databinding.FragmentExpensesBinding
+import barretina.arnau.calers.databinding.FragmentDebtsBinding
 
-class ExpensesFragment : Fragment() {
+class DebtsFragment : Fragment() {
 
-    private lateinit var binding: FragmentExpensesBinding
+    private lateinit var binding: FragmentDebtsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentExpensesBinding.inflate(inflater)
+        binding = FragmentDebtsBinding.inflate(inflater)
         initListeners()
         return binding.root
     }
 
     private fun initListeners() {
-        /*binding.btnExpenses.setOnClickListener {
+/*        binding.btnExpenses.setOnClickListener {
             (activity as? MainActivity)?.navigateToExpensesFragment()
         }
 
@@ -31,6 +31,6 @@ class ExpensesFragment : Fragment() {
     }
 
     companion object {
-        const val TAG = "ExpensesFragment"
+        const val TAG = "DebtsFragment"
     }
 }

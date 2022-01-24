@@ -1,4 +1,4 @@
-package barretina.arnau.calers.Expenses
+package barretina.arnau.calers.expenses
 
 import java.io.Serializable
 import java.util.Calendar

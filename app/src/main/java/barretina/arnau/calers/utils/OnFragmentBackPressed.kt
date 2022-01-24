@@ -1,4 +1,4 @@
-package barretina.arnau.calers
+package barretina.arnau.calers.utils
 
 interface OnFragmentBackPressed {
     fun onFragmentBackPressed(): Boolean
