@@ -2,7 +2,6 @@ package barretina.arnau.calers
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.Resources
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout

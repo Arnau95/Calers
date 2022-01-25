@@ -18,16 +18,9 @@ interface SettingsMemoryDataSource {
 
     fun getSelectedTheme(): String?
 
-    fun getAvailableLanguages(): ArrayList<String>
-
     fun getAvailableScreens(): ArrayList<String>
 
     fun getAvailableThemes(): ArrayList<String>
-
-}
-
-enum class Language {
-    ENGLISH, CATALAN, SPANISH
 }
 
 enum class DefaultStartScreen {

@@ -10,6 +10,7 @@ import barretina.arnau.calers.debts.DebtsFragment
 import barretina.arnau.calers.expenses.ExpensesFragment
 import barretina.arnau.calers.settings.SettingsFragment
 import barretina.arnau.calers.databinding.ActivityMainBinding
+import barretina.arnau.calers.utils.LanguagesHelper
 import java.util.*
 
 class MainActivity : AppCompatActivity(), MainActivityContract.View {
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var presenter: MainActivityContract.Presenter
+
+    private val languagesHelper: LanguagesHelper = LanguagesHelper()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,10 +100,12 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
     }
 
     override fun setLocale(language: String?, mustRefresh: Boolean) {
-        var localeCode = ENGLISH_LOCALE_TAG
+        var localeCode = languagesHelper.getLocale(LanguagesHelper.AppLanguage.English)
         when (language) {
-            "CATALAN" -> localeCode = CATALAN_LOCALE_TAG
-            "SPANISH" -> localeCode = SPANISH_LOCALE_TAG
+            languagesHelper.getLanguageName(LanguagesHelper.AppLanguage.Catalan) -> localeCode =
+                languagesHelper.getLocale(LanguagesHelper.AppLanguage.Catalan)
+            languagesHelper.getLanguageName(LanguagesHelper.AppLanguage.Spanish) -> localeCode =
+                languagesHelper.getLocale(LanguagesHelper.AppLanguage.Spanish)
         }
 
         val locale = Locale(localeCode)
@@ -128,11 +133,5 @@ class MainActivity : AppCompatActivity(), MainActivityContract.View {
                 navigateToMainFragment()
             }
         }
-    }
-
-    companion object {
-        const val ENGLISH_LOCALE_TAG = "en"
-        const val CATALAN_LOCALE_TAG = "ca"
-        const val SPANISH_LOCALE_TAG = "es"
     }
 }

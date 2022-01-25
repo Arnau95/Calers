@@ -30,14 +30,6 @@ class SettingsMemoryDataSourceImp(override val context: Context) : SettingsMemor
         return context.getSavedString(SETTINGS_SHARED_PREFERENCE, SAVED_THEME_TAG)
     }
 
-    override fun getAvailableLanguages(): ArrayList<String> {
-        val languages: ArrayList<String> = ArrayList()
-        Language.values().forEach {
-            languages.add(it.name)
-        }
-        return languages
-    }
-
     override fun getAvailableScreens(): ArrayList<String> {
         val screens: ArrayList<String> = ArrayList()
         DefaultStartScreen.values().forEach {

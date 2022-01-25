@@ -2,6 +2,7 @@ package barretina.arnau.calers.settings
 
 import android.content.Context
 import barretina.arnau.calers.settings.datasources.SettingsMemoryDataSourceImp
+import barretina.arnau.calers.utils.LanguagesHelper
 
 class SettingsPresenter(override val context: Context) : SettingsContract.Presenter {
 
@@ -13,7 +14,7 @@ class SettingsPresenter(override val context: Context) : SettingsContract.Presen
     override fun onViewCreated() {
         view?.refreshLanguagesSelector(
             settingsMemoryDataSource.getSelectedLanguage(),
-            settingsMemoryDataSource.getAvailableLanguages()
+            LanguagesHelper().getLanguagesList()
         )
         view?.refreshDefaultScreenSelector(
             settingsMemoryDataSource.getDefaultStartScreen(),
