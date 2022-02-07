@@ -9,7 +9,7 @@
         <item name="android:colorControlNormal">@color/white</item>
 
         <!-- Primary colors for UI elements -->
-        <!-- test 3-->
+        <!-- test 5-->
         <item name="colorPrimary">@color/white</item>
         <item name="colorOnPrimary">@color/black</item>
 
